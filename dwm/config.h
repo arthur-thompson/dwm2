@@ -6,13 +6,16 @@ static const char *upvol[] = { "/usr/bin/amixer", "set", "Master", "5%+", NULL }
 static const char *downvol[] = { "/usr/bin/amixer", "set", "Master", "5%-", NULL };
 static const char *mutevol[] = { "/usr/bin/amixer", "set", "Master", "toggle", NULL };
 
+static const char *upbri[] = { "/usr/bin/light", "-A", "5", NULL };
+static const char *downbri[] = { "/usr/bin/light", "-U", "5", NULL };
+
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12" };
-static const char dmenufont[]       = "monospace:size=12";
+static const char *fonts[]          = { "terminus:size=12" };
+static const char dmenufont[]       = "terminus:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -103,6 +106,8 @@ static const Key keys[] = {
         { 0,                            XF86XK_AudioLowerVolume, spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = mutevol } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = upvol   } },
+        { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = downbri } },
+	{ 0,                            XF86XK_MonBrightnessUp, spawn, {.v = upbri   } },
 };
 
 /* button definitions */
